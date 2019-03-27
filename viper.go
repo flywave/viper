@@ -1747,7 +1747,7 @@ func (v *Viper) EnvSettings() map[string]interface{} {
 	m := map[string]interface{}{}
 	// start from the list of keys, and construct the map one value at a time
 	for _, k := range v.AllKeys() {
-		value := v.getEnv(v.mergeWithEnvPrefix(k))
+		value, _ := v.getEnv(v.mergeWithEnvPrefix(k))
 		if value == "" {
 			continue
 		}
